@@ -1,0 +1,59 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	background-color: #000;
+	color: #FFF;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+}
+
+div {
+	margin: auto;
+	width: 25%;
+	padding: 10px;
+	text-align: center;
+}
+
+table {
+	text-align: center;
+	vertical-align: middle;
+	width: 100%;
+	border-collapse: separate;
+	border-spacing: 10px;
+}
+
+td {
+	width: 30%;
+	height: 50%;
+	text-align: center;
+	vertical-align: middle;
+	padding: 10px;
+}
+
+.nameInput {
+	width: 100%;
+	font-size: 18px !important;
+}
+
+.btn {
+  -webkit-border-radius: 20;
+  -moz-border-radius: 20;
+  border-radius: 20px;
+  font-family: Arial;
+  color: #000000;
+  font-size: 18px;
+  background: #ffffff;
+  padding: 10px 20px;
+  text-decoration: none;
+}
+
+.backstory {
+	text-align: left !important;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}

@@ -1,0 +1,113 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Skyrim Character Generator</title>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="scripts/chargen.js"></script>
+</head>
+
+<body>
+<script>
+$(document).ready(function() {
+	$(".character").hide();
+	
+	$(".btn").click(function() {
+			// clear the faction list
+			$(".factionList").empty();
+			
+			// generate character
+			createCharacter();
+			
+			// backstory
+			var charName = $(".nameInput").val();
+			$(".charName").text(charName);
+			$(".charRace").text(character.race);
+			$(".charClass").text(character.class);
+			$(".charMotivation").text(character.motivation);
+			$(".charInterest").text(character.interest);
+			$(".charFear").text(character.fear);
+			
+			// skills
+			for(i = 0; i < character.skills.length; i++) {
+				var pos = ".skill" + i;
+				$(pos).text(character.skills[i]);
+			}
+			
+			// factions
+			if(character.factions.length > 0) {
+				for(i = 0; i < character.factions.length; i++) {
+					$(".factionList").append("<li>" + character.factions[i]);	
+				}
+			}
+			else {
+				$(".factionList").append("<li> No factions");
+			}
+			
+			// civil war
+			$(".civilWarSide").text(character.civilWarSide);
+			
+			// dawnguard
+			$(".dawnguardSide").text(character.dawnguardSide);
+			
+			// fade in each section
+			var time = 1000;
+			$(".character").each(function() {
+				$(this).fadeIn(time);
+				time += 1000;
+			});
+	});
+});
+</script>
+
+<div>
+  <h1>Skyrim Character Generator</h1>
+</div>
+<div>
+  <input type="text" value="Enter a name" class="nameInput" />
+</div>
+<div>
+  <input type="button" value="Create" class="btn" />
+</div>
+<div class="character">
+  <p class="backstory"><span class="charName">NAME</span> the <span class="charRace">RACE</span> <span class="charClass">CLASS</span> has travelled to Skyrim <span class="charMotivation">MOTIVATION</span>. <br /><br />
+  <span class="charName">NAME</span> has a keen interest in <span class="charInterest">INTEREST</span>.<br /><br />
+  They are afraid of <span class="charFear">FEAR</span>.
+  </p>
+</div>
+<div class="character">
+  <h2>Primary Skills</h2>
+  <table>
+    <tr>
+      <td class="skill0"> Skill 1 </td>
+      <td class="skill1"> Skill 2 </td>
+      <td class="skill2"> Skill 3 </td>
+    </tr>
+  </table>
+</div>
+<div class="character">
+  <h2>Secondary Skills</h2>
+  <table>
+    
+      <td class="skill3"> Skill 4 </td>
+      <td class="skill4"> Skill 5 </td>
+      <td class="skill5"> Skill 6 </td>
+    </tr>
+  </table>
+</div>
+<div class="character">
+<h2>Factions</h2>
+<ul class="factionList">
+</ul>
+</div>
+<div class="character">
+<h2>Civil War Side</h2>
+<p class="civilWarSide">Imperial</p>
+</div>
+<div class="character">
+<h2>Dawnguard Side</h2>
+<p class="dawnguardSide">The Dawnguard</p>
+</div>
+</body>
+</html>
